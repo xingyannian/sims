@@ -17,7 +17,7 @@ public class StudentService implements UserDetailsService{
     private StudentRepository studentRepository;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Student student = studentRepository.findByNameOrStuId(s,s);
+        Student student = studentRepository.findByStuId(s);
         if (student == null){
             return new Student();
         }
