@@ -1,20 +1,23 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layout/default">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login</title>
+    <script src="/webjars/jquery/2.2.1/jquery.js"></script>
     <link href="/webjars/materializecss/0.100.1/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <script src="webjars/materializecss/0.100.1/js/materialize.js"></script>
 </head>
 <body>
-<div class="section no-pad-bot" layout:fragment="content">
+
     <div class="container">
 
         <h2 class="header center orange-text">学生数据管理系统—学生端</h2>
 
         <div class="row">
             <div id="errorMessage" class="card-panel red lighten-2" th:if="${param.error}">
-                <span class="card-title">Invalid user name or password</span>
+                <span class="card-title">不可用的账号或密码</span>
+            </div>
+            <div id="errorMessage" class="card-panel blue lighten-2" th:if="${param.logout}">
+                <span class="card-title">你已经成功退出系统！</span>
             </div>
 
             <form class="col s12" action="/login" method="post">
@@ -38,6 +41,6 @@
             </form>
         </div>
     </div>
-</div>
+
 </body>
 </html>

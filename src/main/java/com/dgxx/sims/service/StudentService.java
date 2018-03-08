@@ -19,6 +19,7 @@ public class StudentService implements UserDetailsService{
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Student student = studentRepository.findByStuId(s);
         if (student == null){
+            System.out.println("User not found");
             throw new UsernameNotFoundException("UserName " + s + " not found");
         }
         System.out.println("s:"+s);

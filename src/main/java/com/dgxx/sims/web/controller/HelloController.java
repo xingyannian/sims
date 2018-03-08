@@ -18,4 +18,8 @@ public class HelloController {
     public String index(){
         return "index";
     }
+    @RequestMapping("/access_denied")
+    public String access_denied(){
+        return "access_denied";
+    }
 }
